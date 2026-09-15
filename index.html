@@ -5,6 +5,23 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>camera_trap | AlTo</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/assets/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/assets/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -27,6 +44,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
         <div class="container-fluid">
+            <img src="assets/favicon/android-icon-192x192.png" alt="" style="height: 45px;">
             <a class="navbar-brand" href="#">Peta Sebaran Camera Trap AlTo </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -82,6 +100,11 @@
     </div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.css">
+    <script
+        src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         // Inisialisasi peta
@@ -98,7 +121,7 @@
         });
 
         var rupabumiindonesia = L.tileLayer('https://geoservices.big.go.id/rbi/rest/services/BASEMAP/Rupabumi_Indonesia/MapServer/tile/{z}/{y}/{x}', {
-            attribution: 'Sandhy_Adrianus Bawotong'
+            attribution: 'Sandhy_Adrian'
         });
 
         // Menambahkan basemap ke dalam peta
@@ -114,7 +137,7 @@
                         iconSize: [20, 20], // ukuran icon
                         iconAnchor: [10, 10], // posisi icon terhadap titik (point)
                         popupAnchor: [0, -48], // posisi popup terhadap icon
-                        tooltipAnchor: [-16, -30], // posisi tooltip terhadap icon
+                        tooltipAnchor: [5, -30], // posisi tooltip terhadap icon
                     }),
                 });
             },
@@ -128,100 +151,65 @@
                 function dataMuncul(_nama, _variable,) {
                     if (_variable != 0) {
                         return `<tr><th>` + _nama + `</th><td>` + _variable + ` </td></tr>`
-                    } else{
+                    } else {
                         return ''
                     }
                 }
 
-var popup = popup + dataMuncul ("Anjing",feature.properties.anjing)
-var popup = popup + dataMuncul ("Anoa",feature.properties.anoa)
-var popup = popup + dataMuncul ("Ayam Hutan",feature.properties.ayam_hutan)
-var popup = popup + dataMuncul ("Babi Hutan",feature.properties.babi_hutan)
-var popup = popup + dataMuncul ("Babirusa",feature.properties.babirusa)
-var popup = popup + dataMuncul ("Biawak",feature.properties.biawak)
-var popup = popup + dataMuncul ("Burung Tidak teridentifikasi",feature.properties.bird)
-var popup = popup + dataMuncul ("Bubut Sulawesi",feature.properties.bubut_sulawesi)
-var popup = popup + dataMuncul ("Delimukan Sulawesi",feature.properties.delimukan_sulawesi)
-var popup = popup + dataMuncul ("Elang Alap Ekor Totol",feature.properties.elang_alap_ekor_totol)
-var popup = popup + dataMuncul ("Elang Ular Sulawesi",feature.properties.elang_ular_sulawesi)
-var popup = popup + dataMuncul ("Kadal",feature.properties.kadal)
-var popup = popup + dataMuncul ("Kangkareng Sulawesi",feature.properties.kangkareng_sulawesi)
-var popup = popup + dataMuncul ("Katak",feature.properties.katak)
-var popup = popup + dataMuncul ("Kehicap Ranting",feature.properties.kehicap_ranting)
-var popup = popup + dataMuncul ("Kelelawar",feature.properties.kelelawar)
-var popup = popup + dataMuncul ("Kingfisher",feature.properties.kingfisher)
-var popup = popup + dataMuncul ("Kupu-kupu",feature.properties.kupu_kupu)
-var popup = popup + dataMuncul ("Kura-kura",feature.properties.kura_kura)
-var popup = popup + dataMuncul ("Kuskus Beruang",feature.properties.kuskus_beruang)
-var popup = popup + dataMuncul ("Lebah",feature.properties.lebah)
-var popup = popup + dataMuncul ("Macaca",feature.properties.macaca)
-var popup = popup + dataMuncul ("Maleo",feature.properties.maleo)
-var popup = popup + dataMuncul ("Sulawesi Malkoha",feature.properties.malkoha)
-var popup = popup + dataMuncul ("Mandar Padi Zebra",feature.properties.mandar_padi_zebra)
-var popup = popup + dataMuncul ("Musang Sulawesi",feature.properties.musang_sulawesi)
-var popup = popup + dataMuncul ("Musang Tenggalung",feature.properties.musang_tenggalung)
-var popup = popup + dataMuncul ("Pelatuk Kelabu Sulawesi",feature.properties.pelatuk_kelabu_sulawesi)
-var popup = popup + dataMuncul ("Rusa",feature.properties.rusa)
-var popup = popup + dataMuncul ("Sapi",feature.properties.sapi)
-var popup = popup + dataMuncul ("Serak Sulawesi",feature.properties.serak_sulawesi)
-var popup = popup + dataMuncul ("Srigunting Sulawesi",feature.properties.srigunting_sulawesi)
-var popup = popup + dataMuncul ("Tarsius",feature.properties.tarsius)
-var popup = popup + dataMuncul ("Tikus",feature.properties.tikus)
-var popup = popup + dataMuncul ("Tupai",feature.properties.tupai)
-var popup = popup + dataMuncul ("Uncal Sultan",feature.properties.uncal_sultan)
+                var popup = popup + dataMuncul("Anjing", feature.properties.anjing)
+                var popup = popup + dataMuncul("Anoa", feature.properties.anoa)
+                var popup = popup + dataMuncul("Ayam Hutan", feature.properties.ayam_hutan)
+                var popup = popup + dataMuncul("Babi Hutan", feature.properties.babi_hutan)
+                var popup = popup + dataMuncul("Babirusa", feature.properties.babirusa)
+                var popup = popup + dataMuncul("Biawak", feature.properties.biawak)
+                var popup = popup + dataMuncul("Burung Tidak teridentifikasi", feature.properties.bird)
+                var popup = popup + dataMuncul("Bubut Sulawesi", feature.properties.bubut_sulawesi)
+                var popup = popup + dataMuncul("Delimukan Sulawesi", feature.properties.delimukan_sulawesi)
+                var popup = popup + dataMuncul("Elang Alap Ekor Totol", feature.properties.elang_alap_ekor_totol)
+                var popup = popup + dataMuncul("Elang Ular Sulawesi", feature.properties.elang_ular_sulawesi)
+                var popup = popup + dataMuncul("Kadal", feature.properties.kadal)
+                var popup = popup + dataMuncul("Kangkareng Sulawesi", feature.properties.kangkareng_sulawesi)
+                var popup = popup + dataMuncul("Katak", feature.properties.katak)
+                var popup = popup + dataMuncul("Kehicap Ranting", feature.properties.kehicap_ranting)
+                var popup = popup + dataMuncul("Kelelawar", feature.properties.kelelawar)
+                var popup = popup + dataMuncul("Kingfisher", feature.properties.kingfisher)
+                var popup = popup + dataMuncul("Kupu-kupu", feature.properties.kupu_kupu)
+                var popup = popup + dataMuncul("Kura-kura", feature.properties.kura_kura)
+                var popup = popup + dataMuncul("Kuskus Beruang", feature.properties.kuskus_beruang)
+                var popup = popup + dataMuncul("Lebah", feature.properties.lebah)
+                var popup = popup + dataMuncul("Macaca", feature.properties.macaca)
+                var popup = popup + dataMuncul("Maleo", feature.properties.maleo)
+                var popup = popup + dataMuncul("Sulawesi Malkoha", feature.properties.malkoha)
+                var popup = popup + dataMuncul("Mandar Padi Zebra", feature.properties.mandar_padi_zebra)
+                var popup = popup + dataMuncul("Musang Sulawesi", feature.properties.musang_sulawesi)
+                var popup = popup + dataMuncul("Musang Tenggalung", feature.properties.musang_tenggalung)
+                var popup = popup + dataMuncul("Pelatuk Kelabu Sulawesi", feature.properties.pelatuk_kelabu_sulawesi)
+                var popup = popup + dataMuncul("Rusa", feature.properties.rusa)
+                var popup = popup + dataMuncul("Sapi", feature.properties.sapi)
+                var popup = popup + dataMuncul("Serak Sulawesi", feature.properties.serak_sulawesi)
+                var popup = popup + dataMuncul("Srigunting Sulawesi", feature.properties.srigunting_sulawesi)
+                var popup = popup + dataMuncul("Tarsius", feature.properties.tarsius)
+                var popup = popup + dataMuncul("Tikus", feature.properties.tikus)
+                var popup = popup + dataMuncul("Tupai", feature.properties.tupai)
+                var popup = popup + dataMuncul("Uncal Sultan", feature.properties.uncal_sultan)
 
-var popup = popup + `</table>`
+                var popup = popup + `</table>`
 
-                // variable popup content
-                // var popup_content = `<table class='table table-striped table-bordered table-condensed'>
-                //   <tr><th>Anjing</th><td>${feature.properties.anjing} </td></tr>
-                //   <tr><th>Anoa</th><td>${feature.properties.anoa} </td></tr>
-                //   <tr><th>Ayam Hutan</th><td>${feature.properties.ayam_hutan} </td></tr>
-                //   <tr><th>Babi Hutan</th><td>${feature.properties.babi_hutan} </td></tr>
-                //   <tr><th>Babirusa</th><td>${feature.properties.babirusa} </td></tr>
-                //   <tr><th>Biawak</th><td>${feature.properties.biawak} </td></tr>
-                //   <tr><th>Burung (Bird)</th><td>${feature.properties.bird} </td></tr>
-                //   <tr><th>Bubut Sulawesi</th><td>${feature.properties.bubut_sulawesi} </td></tr>
-                //   <tr><th>Delimukan Sulawesi</th><td>${feature.properties.delimukan_sulawesi} </td></tr>
-                //   <tr><th>Elang Alap Ekor Totol</th><td>${feature.properties.elang_alap_ekor_totol} </td></tr>
-                //   <tr><th>Elang Ular Sulawesi</th><td>${feature.properties.elang_ular_sulawesi} </td></tr>
-                //   <tr><th>Kadal</th><td>${feature.properties.kadal} </td></tr>
-                //   <tr><th>Kangkareng Sulawesi</th><td>${feature.properties.kangkareng_sulawesi} </td></tr>
-                //   <tr><th>Katak</th><td>${feature.properties.katak} </td></tr>
-                //   <tr><th>Kehicap Ranting</th><td>${feature.properties.kehicap_ranting} </td></tr>
-                //   <tr><th>Kelelawar</th><td>${feature.properties.kelelawar} </td></tr>
-                //   <tr><th>Kingfisher</th><td>${feature.properties.kingfisher} </td></tr>
-                //   <tr><th>Kupu-kupu</th><td>${feature.properties["kupu-kupu"]} </td></tr>
-                //   <tr><th>Kura-kura</th><td>${feature.properties["kura-kura"]} </td></tr>
-                //   <tr><th>Kuskus Beruang</th><td>${feature.properties.kuskus_beruang} </td></tr>
-                //   <tr><th>Lebah</th><td>${feature.properties.lebah} </td></tr>
-                //   <tr><th>Macaca</th><td>${feature.properties.macaca} </td></tr>
-                //   <tr><th>Maleo</th><td>${feature.properties.maleo} </td></tr>
-                //   <tr><th>Malkoha</th><td>${feature.properties.malkoha} </td></tr>
-                //   <tr><th>Mandar Padi Zebra</th><td>${feature.properties.mandar_padi_zebra} </td></tr>
-                //   <tr><th>Manusia</th><td>${feature.properties.manusia} </td></tr>
-                //   <tr><th>Musang Sulawesi</th><td>${feature.properties.musang_sulawesi} </td></tr>
-                //   <tr><th>Musang Tenggalung</th><td>${feature.properties.musang_tenggalung} </td></tr>
-                //   <tr><th>Pelatuk Kelabu Sulawesi</th><td>${feature.properties.pelatuk_kelabu_sulawesi} </td></tr>
-                //     <tr><th>Rusa</th><td>${feature.properties.rusa} </td></tr>
-                //   <tr><th>Sapi</th><td>${feature.properties.sapi} </td></tr>
-                //   <tr><th>Serak Sulawesi</th><td>${feature.properties.serak_sulawesi} </td></tr>
-                //   <tr><th>Srigunting Sulawesi</th><td>${feature.properties.srigunting_sulawesi} </td></tr>
-                //   <tr><th>Tarsius</th><td>${feature.properties.tarsius} </td></tr>
-                //   <tr><th>Tikus</th><td>${feature.properties.tikus} </td></tr>
-                //   <tr><th>Tupai</th><td>${feature.properties.tupai} </td></tr>
-                //   <tr><th>Uncal Sultan</th><td>${feature.properties.uncal_sultan} </td></tr>
-                //   </table>`;
                 layer.on({
+
                     click: function (e) {
                         $("#feature-title").html(`Kamera ${feature.properties.nama_kamera}`); //Judul Modal
                         $("#feature-info").html(popup); //Isi Modal
                         $("#featureModal").modal("show"); //Menampilkan featureModal
-                    }
+                    },
+
                 });
             },
 
-        });
+        }).bindTooltip(function(layer){
+            return layer.feature.properties.nama_kamera
+        })
+
         $.getJSON("assets/geojson/titik_kamera.geojson", function (data) {
             cameraTrap.addData(data); // Menambahkan data ke dalam point variable
             map.addLayer(cameraTrap); // Menambahkan GeoJSON Point ke dalam peta
@@ -321,6 +309,73 @@ var popup = popup + `</table>`
             collapsed: true
         });
         controllayer.addTo(map);
+
+        // Scale
+        var scale = L.control.scale({
+            maxWidth: 50,
+            imperial: false
+
+        });
+        scale.addTo(map);
+
+        // Geolocation
+        // map.locate({
+        //     setView: true,
+        //     maxZoom: 16,
+        // });
+
+        // Fungsi untuk menampilkan lokasi
+        function onLocationFound(e) {
+            var radius = e.accuracy / 2;
+
+            // Menampilkan marker pada lokasi
+            L.marker(e.latlng).addTo(map).bindPopup("Anda berada dalam radius " + radius + " meter dari titik ini").openPopup();
+
+            // Menampilkan circle pada lokasi
+            L.circle(e.latlng, radius).addTo(map);
+        }
+
+        map.on("locationfound", onLocationFound);
+
+        // Fungsi untuk menampilkan pesan error
+        function onLocationError(e) {
+            alert(e.message);
+        }
+
+        map.on("locationerror", onLocationError);
+
+        /* Geolocation */
+        var locateControl = L.control.locate({
+            position: "topleft",
+            drawCircle: true,
+            follow: true,
+            setView: true,
+            keepCurrentZoomLevel: false,
+            markerStyle: {
+                weight: 1,
+                opacity: 0.8,
+                fillOpacity: 0.8,
+            },
+            circleStyle: {
+                weight: 1,
+                clickable: false,
+            },
+            icon: "fa fa-crosshairs",
+            metric: true,
+            strings: {
+                title: "Klik untuk mengetahui lokasimu",
+                popup: "Lokasimu sekarang di sini.Akurasi {distance} {unit}",
+                outsideMapBoundsMsg: "Kamu berada di luar area peta"
+            },
+            locateOptions: {
+                maxZoom: 15,
+                watch: true,
+                enableHighAccuracy: true,
+                maximumAge: 10000,
+                timeout: 10000
+            }
+        });
+        locateControl.addTo(map);
 
     </script>
 </body>
