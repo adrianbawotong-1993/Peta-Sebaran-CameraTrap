@@ -122,50 +122,101 @@
             // onEachFeature
 
             onEachFeature: function (feature, layer) {
+
+                var popup = `<table class='table table-striped table-bordered table-condensed'>`
+
+                function dataMuncul(_nama, _variable,) {
+                    if (_variable != 0) {
+                        return `<tr><th>` + _nama + `</th><td>` + _variable + ` </td></tr>`
+                    } else{
+                        return ''
+                    }
+                }
+
+var popup = popup + dataMuncul ("Anjing",feature.properties.anjing)
+var popup = popup + dataMuncul ("Anoa",feature.properties.anoa)
+var popup = popup + dataMuncul ("Ayam Hutan",feature.properties.ayam_hutan)
+var popup = popup + dataMuncul ("Babi Hutan",feature.properties.babi_hutan)
+var popup = popup + dataMuncul ("Babirusa",feature.properties.babirusa)
+var popup = popup + dataMuncul ("Biawak",feature.properties.biawak)
+var popup = popup + dataMuncul ("Burung Tidak teridentifikasi",feature.properties.bird)
+var popup = popup + dataMuncul ("Bubut Sulawesi",feature.properties.bubut_sulawesi)
+var popup = popup + dataMuncul ("Delimukan Sulawesi",feature.properties.delimukan_sulawesi)
+var popup = popup + dataMuncul ("Elang Alap Ekor Totol",feature.properties.elang_alap_ekor_totol)
+var popup = popup + dataMuncul ("Elang Ular Sulawesi",feature.properties.elang_ular_sulawesi)
+var popup = popup + dataMuncul ("Kadal",feature.properties.kadal)
+var popup = popup + dataMuncul ("Kangkareng Sulawesi",feature.properties.kangkareng_sulawesi)
+var popup = popup + dataMuncul ("Katak",feature.properties.katak)
+var popup = popup + dataMuncul ("Kehicap Ranting",feature.properties.kehicap_ranting)
+var popup = popup + dataMuncul ("Kelelawar",feature.properties.kelelawar)
+var popup = popup + dataMuncul ("Kingfisher",feature.properties.kingfisher)
+var popup = popup + dataMuncul ("Kupu-kupu",feature.properties.kupu_kupu)
+var popup = popup + dataMuncul ("Kura-kura",feature.properties.kura_kura)
+var popup = popup + dataMuncul ("Kuskus Beruang",feature.properties.kuskus_beruang)
+var popup = popup + dataMuncul ("Lebah",feature.properties.lebah)
+var popup = popup + dataMuncul ("Burung Tidak teridentifikasi",feature.properties.bird)
+var popup = popup + dataMuncul ("Macaca",feature.properties.macaca)
+var popup = popup + dataMuncul ("Maleo",feature.properties.maleo)
+var popup = popup + dataMuncul ("Sulawesi Malkoha",feature.properties.malkoha)
+var popup = popup + dataMuncul ("Mandar Padi Zebra",feature.properties.mandar_padi_zebra)
+var popup = popup + dataMuncul ("Musang Sulawesi",feature.properties.musang_sulawesi)
+var popup = popup + dataMuncul ("Musang Tenggalung",feature.properties.musang_tenggalung)
+var popup = popup + dataMuncul ("Pelatuk Kelabu Sulawesi",feature.properties.pelatuk_kelabu_sulawesi)
+var popup = popup + dataMuncul ("Rusa",feature.properties.rusa)
+var popup = popup + dataMuncul ("Sapi",feature.properties.sapi)
+var popup = popup + dataMuncul ("Serak Sulawesi",feature.properties.serak_sulawesi)
+var popup = popup + dataMuncul ("Srigunting Sulawesi",feature.properties.srigunting_sulawesi)
+var popup = popup + dataMuncul ("Tarsius",feature.properties.tarsius)
+var popup = popup + dataMuncul ("Tikus",feature.properties.tikus)
+var popup = popup + dataMuncul ("Tupai",feature.properties.tupai)
+var popup = popup + dataMuncul ("Uncal Sultan",feature.properties.uncal_sultan)
+
+var popup = popup + `</table>`
+
                 // variable popup content
-                var popup_content = `<table class='table table-striped table-bordered table-condensed'>
-  <tr><th>Anjing</th><td>${feature.properties.anjing} </td></tr>
-  <tr><th>Anoa</th><td>${feature.properties.anoa} </td></tr>
-  <tr><th>Ayam Hutan</th><td>${feature.properties.ayam_hutan} </td></tr>
-  <tr><th>Babi Hutan</th><td>${feature.properties.babi_hutan} </td></tr>
-  <tr><th>Babirusa</th><td>${feature.properties.babirusa} </td></tr>
-  <tr><th>Biawak</th><td>${feature.properties.biawak} </td></tr>
-  <tr><th>Burung (Bird)</th><td>${feature.properties.bird} </td></tr>
-  <tr><th>Bubut Sulawesi</th><td>${feature.properties.bubut_sulawesi} </td></tr>
-  <tr><th>Delimukan Sulawesi</th><td>${feature.properties.delimukan_sulawesi} </td></tr>
-  <tr><th>Elang Alap Ekor Totol</th><td>${feature.properties.elang_alap_ekor_totol} </td></tr>
-  <tr><th>Elang Ular Sulawesi</th><td>${feature.properties.elang_ular_sulawesi} </td></tr>
-  <tr><th>Kadal</th><td>${feature.properties.kadal} </td></tr>
-  <tr><th>Kangkareng Sulawesi</th><td>${feature.properties.kangkareng_sulawesi} </td></tr>
-  <tr><th>Katak</th><td>${feature.properties.katak} </td></tr>
-  <tr><th>Kehicap Ranting</th><td>${feature.properties.kehicap_ranting} </td></tr>
-  <tr><th>Kelelawar</th><td>${feature.properties.kelelawar} </td></tr>
-  <tr><th>Kingfisher</th><td>${feature.properties.kingfisher} </td></tr>
-  <tr><th>Kupu-kupu</th><td>${feature.properties["kupu-kupu"]} </td></tr>
-  <tr><th>Kura-kura</th><td>${feature.properties["kura-kura"]} </td></tr>
-  <tr><th>Kuskus Beruang</th><td>${feature.properties.kuskus_beruang} </td></tr>
-  <tr><th>Lebah</th><td>${feature.properties.lebah} </td></tr>
-  <tr><th>Macaca</th><td>${feature.properties.macaca} </td></tr>
-  <tr><th>Maleo</th><td>${feature.properties.maleo} </td></tr>
-  <tr><th>Malkoha</th><td>${feature.properties.malkoha} </td></tr>
-  <tr><th>Mandar Padi Zebra</th><td>${feature.properties.mandar_padi_zebra} </td></tr>
-  <tr><th>Manusia</th><td>${feature.properties.manusia} </td></tr>
-  <tr><th>Musang Sulawesi</th><td>${feature.properties.musang_sulawesi} </td></tr>
-  <tr><th>Musang Tenggalung</th><td>${feature.properties.musang_tenggalung} </td></tr>
-  <tr><th>Pelatuk Kelabu Sulawesi</th><td>${feature.properties.pelatuk_kelabu_sulawesi} </td></tr>
-    <tr><th>Rusa</th><td>${feature.properties.rusa} </td></tr>
-  <tr><th>Sapi</th><td>${feature.properties.sapi} </td></tr>
-  <tr><th>Serak Sulawesi</th><td>${feature.properties.serak_sulawesi} </td></tr>
-  <tr><th>Srigunting Sulawesi</th><td>${feature.properties.srigunting_sulawesi} </td></tr>
-  <tr><th>Tarsius</th><td>${feature.properties.tarsius} </td></tr>
-  <tr><th>Tikus</th><td>${feature.properties.tikus} </td></tr>
-  <tr><th>Tupai</th><td>${feature.properties.tupai} </td></tr>
-  <tr><th>Uncal Sultan</th><td>${feature.properties.uncal_sultan} </td></tr>
-  </table>`;
+                // var popup_content = `<table class='table table-striped table-bordered table-condensed'>
+                //   <tr><th>Anjing</th><td>${feature.properties.anjing} </td></tr>
+                //   <tr><th>Anoa</th><td>${feature.properties.anoa} </td></tr>
+                //   <tr><th>Ayam Hutan</th><td>${feature.properties.ayam_hutan} </td></tr>
+                //   <tr><th>Babi Hutan</th><td>${feature.properties.babi_hutan} </td></tr>
+                //   <tr><th>Babirusa</th><td>${feature.properties.babirusa} </td></tr>
+                //   <tr><th>Biawak</th><td>${feature.properties.biawak} </td></tr>
+                //   <tr><th>Burung (Bird)</th><td>${feature.properties.bird} </td></tr>
+                //   <tr><th>Bubut Sulawesi</th><td>${feature.properties.bubut_sulawesi} </td></tr>
+                //   <tr><th>Delimukan Sulawesi</th><td>${feature.properties.delimukan_sulawesi} </td></tr>
+                //   <tr><th>Elang Alap Ekor Totol</th><td>${feature.properties.elang_alap_ekor_totol} </td></tr>
+                //   <tr><th>Elang Ular Sulawesi</th><td>${feature.properties.elang_ular_sulawesi} </td></tr>
+                //   <tr><th>Kadal</th><td>${feature.properties.kadal} </td></tr>
+                //   <tr><th>Kangkareng Sulawesi</th><td>${feature.properties.kangkareng_sulawesi} </td></tr>
+                //   <tr><th>Katak</th><td>${feature.properties.katak} </td></tr>
+                //   <tr><th>Kehicap Ranting</th><td>${feature.properties.kehicap_ranting} </td></tr>
+                //   <tr><th>Kelelawar</th><td>${feature.properties.kelelawar} </td></tr>
+                //   <tr><th>Kingfisher</th><td>${feature.properties.kingfisher} </td></tr>
+                //   <tr><th>Kupu-kupu</th><td>${feature.properties["kupu-kupu"]} </td></tr>
+                //   <tr><th>Kura-kura</th><td>${feature.properties["kura-kura"]} </td></tr>
+                //   <tr><th>Kuskus Beruang</th><td>${feature.properties.kuskus_beruang} </td></tr>
+                //   <tr><th>Lebah</th><td>${feature.properties.lebah} </td></tr>
+                //   <tr><th>Macaca</th><td>${feature.properties.macaca} </td></tr>
+                //   <tr><th>Maleo</th><td>${feature.properties.maleo} </td></tr>
+                //   <tr><th>Malkoha</th><td>${feature.properties.malkoha} </td></tr>
+                //   <tr><th>Mandar Padi Zebra</th><td>${feature.properties.mandar_padi_zebra} </td></tr>
+                //   <tr><th>Manusia</th><td>${feature.properties.manusia} </td></tr>
+                //   <tr><th>Musang Sulawesi</th><td>${feature.properties.musang_sulawesi} </td></tr>
+                //   <tr><th>Musang Tenggalung</th><td>${feature.properties.musang_tenggalung} </td></tr>
+                //   <tr><th>Pelatuk Kelabu Sulawesi</th><td>${feature.properties.pelatuk_kelabu_sulawesi} </td></tr>
+                //     <tr><th>Rusa</th><td>${feature.properties.rusa} </td></tr>
+                //   <tr><th>Sapi</th><td>${feature.properties.sapi} </td></tr>
+                //   <tr><th>Serak Sulawesi</th><td>${feature.properties.serak_sulawesi} </td></tr>
+                //   <tr><th>Srigunting Sulawesi</th><td>${feature.properties.srigunting_sulawesi} </td></tr>
+                //   <tr><th>Tarsius</th><td>${feature.properties.tarsius} </td></tr>
+                //   <tr><th>Tikus</th><td>${feature.properties.tikus} </td></tr>
+                //   <tr><th>Tupai</th><td>${feature.properties.tupai} </td></tr>
+                //   <tr><th>Uncal Sultan</th><td>${feature.properties.uncal_sultan} </td></tr>
+                //   </table>`;
                 layer.on({
                     click: function (e) {
                         $("#feature-title").html(`Kamera ${feature.properties.nama_kamera}`); //Judul Modal
-                        $("#feature-info").html(popup_content); //Isi Modal
+                        $("#feature-info").html(popup); //Isi Modal
                         $("#featureModal").modal("show"); //Menampilkan featureModal
                     }
                 });
