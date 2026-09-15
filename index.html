@@ -153,8 +153,7 @@
   <tr><th>Musang Sulawesi</th><td>${feature.properties.musang_sulawesi} </td></tr>
   <tr><th>Musang Tenggalung</th><td>${feature.properties.musang_tenggalung} </td></tr>
   <tr><th>Pelatuk Kelabu Sulawesi</th><td>${feature.properties.pelatuk_kelabu_sulawesi} </td></tr>
-  <tr><th>Pelatuk-kelabu Sulawesi (Varian)</th><td>${feature.properties["pelatuk-kelabu sulawesi"]} </td></tr>
-  <tr><th>Rusa</th><td>${feature.properties.rusa} </td></tr>
+    tr><th>Rusa</th><td>${feature.properties.rusa} </td></tr>
   <tr><th>Sapi</th><td>${feature.properties.sapi} </td></tr>
   <tr><th>Serak Sulawesi</th><td>${feature.properties.serak_sulawesi} </td></tr>
   <tr><th>Srigunting Sulawesi</th><td>${feature.properties.srigunting_sulawesi} </td></tr>
@@ -255,22 +254,23 @@
             // map.addLayer(jumlah_penduduk); // Menambahkan GeoJSON jumlah_penduduk ke dalam peta
         });
 
-// Control Layer
-var baseMaps = {
-  "OpenStreetMap": osm,
-  "Esri World Imagery": Esri_WorldImagery,
-  "Rupa Bumi Indonesia": rupabumiindonesia,
-};
+        // Control Layer
+        var baseMaps = {
+            "OpenStreetMap": osm,
+            "Esri World Imagery": Esri_WorldImagery,
+            "Rupa Bumi Indonesia": rupabumiindonesia,
+        };
 
-var overlayMaps = {
-"Titik Kamera" : cameraTrap,
-"Batas Kecamatan" : jumlah_penduduk,
+        var overlayMaps = {
+            "Titik Kamera": cameraTrap,
+            "Batas Kecamatan": jumlah_penduduk,
 
-};
+        };
 
-var controllayer = L.control.layers(baseMaps, overlayMaps, {collapsed:true
-});
-controllayer.addTo(map);
+        var controllayer = L.control.layers(baseMaps, overlayMaps, {
+            collapsed: true
+        });
+        controllayer.addTo(map);
 
     </script>
 </body>
